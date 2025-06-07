@@ -6,12 +6,12 @@ import (
 
 	"github.com/hellobchain/approveflow/common/models"
 	"github.com/hellobchain/approveflow/core/approve"
-	"github.com/hellobchain/approveflow/core/log"
+	"github.com/hellobchain/approveflow/core/loggers"
 	"github.com/hellobchain/approveflow/pkg/uuid"
 	"github.com/hellobchain/wswlog/wlogging"
 )
 
-var logger = wlogging.MustGetFileLoggerWithoutName(log.LogConfig)
+var logger = wlogging.MustGetFileLoggerWithoutName(loggers.LogConfig)
 
 // 邮件通知实现
 type EmailNotifier struct{}

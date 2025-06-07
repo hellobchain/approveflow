@@ -10,13 +10,13 @@ import (
 	"github.com/hellobchain/approveflow/common/constant"
 	"github.com/hellobchain/approveflow/common/models"
 	"github.com/hellobchain/approveflow/core/eventer"
-	"github.com/hellobchain/approveflow/core/log"
+	"github.com/hellobchain/approveflow/core/loggers"
 	"github.com/hellobchain/approveflow/core/notifier"
 	"github.com/hellobchain/approveflow/pkg/uuid"
 	"github.com/hellobchain/wswlog/wlogging"
 )
 
-var logger = wlogging.MustGetFileLoggerWithoutName(log.LogConfig)
+var logger = wlogging.MustGetFileLoggerWithoutName(loggers.LogConfig)
 
 // 审批系统
 type ApprovalSystem struct {
