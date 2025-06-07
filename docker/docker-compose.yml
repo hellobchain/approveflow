@@ -1,0 +1,21 @@
+version: "3.3"
+networks:
+  dmnetwork:
+services:
+  dm-db:
+    image: mysql:5.7
+    container_name: dm-db
+    volumes:
+      - ./db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: approve
+      MYSQL_USER: approve
+      MYSQL_PASSWORD: approve
+      MYSQL_DATABASE: approval_system
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci', '--max_allowed_packet=200M']
+    networks:
+      - dmnetwork
+
