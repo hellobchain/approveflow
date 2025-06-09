@@ -431,7 +431,7 @@ func (as *ApprovalSystem) Approve(requestID, approver, comment string) error {
 				}
 			}
 			// 结束事件
-			as.eventer.EndEvent(request)
+			as.eventer.EndEvent(request, constant.OperateTypeApprove)
 			// 删除请求状态
 			err := as.deleteRequestStatus(requestID)
 			if err != nil {
@@ -564,7 +564,7 @@ func (as *ApprovalSystem) Reject(requestID, approver, comment string) error {
 		}
 	}
 	// 结束事件
-	as.eventer.EndEvent(request)
+	as.eventer.EndEvent(request, constant.OperateTypeReject)
 	err = as.deleteRequestStatus(requestID)
 	if err != nil {
 		return err
@@ -605,7 +605,7 @@ func (as *ApprovalSystem) Cancel(requestID, requester string) error {
 		return err
 	}
 	// 结束事件
-	as.eventer.EndEvent(request)
+	as.eventer.EndEvent(request, constant.OperateTypeCancel)
 	err = as.deleteRequestStatus(requestID)
 	if err != nil {
 		return err

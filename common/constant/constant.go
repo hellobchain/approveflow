@@ -22,3 +22,12 @@ const (
 	ActionComment HistoryAction = "comment"
 	ActionSystem  HistoryAction = "system"
 )
+
+// 操作类型
+type OperateType int
+
+const (
+	OperateTypeApprove OperateType = iota + 1 // 批准
+	OperateTypeReject                         // 拒绝
+	OperateTypeCancel                         // 取消
+)

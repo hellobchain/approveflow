@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/hellobchain/approveflow/common/constant"
 	"github.com/hellobchain/approveflow/common/models"
 	"github.com/hellobchain/approveflow/core/approve"
 	"github.com/hellobchain/approveflow/core/loggers"
@@ -23,11 +24,11 @@ func (en EmailNotifier) SendNotification(to, subject, message string) error {
 
 type EmailEventer struct{}
 
-func (ee EmailEventer) EndEvent(request *models.ApprovalRequest) error {
+func (ee EmailEventer) EndEvent(request *models.ApprovalRequest, oprateType constant.OperateType) error {
 	logger.Infof("结束事件: %s, 状态: %s\n", request.ID, request.Status)
 	return nil
 }
-func (ee EmailEventer) StartEvent(request *models.ApprovalRequest) error {
+func (ee EmailEventer) StartEvent(request *models.ApprovalRequest, oprateType constant.OperateType) error {
 	logger.Infof("开始事件: %s, 状态: %s\n", request.ID, request.Status)
 	return nil
 }
